@@ -1,0 +1,185 @@
+{
+    "info": {
+      "name": "Menu Management API",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Create Category",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "url": {
+            "raw": "http://localhost:5000/api/categories",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "5000",
+            "path": ["api", "categories"]
+          },
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"name\": \"Beverages\",\n  \"image\": \"https://example.com/image.jpg\",\n  \"description\": \"All types of drinks\",\n  \"taxApplicable\": true,\n  \"tax\": 10,\n  \"taxType\": \"percentage\"\n}"
+          }
+        }
+      },
+      {
+        "name": "Get All Categories",
+        "request": {
+          "method": "GET",
+          "url": {
+            "raw": "http://localhost:5000/api/categories",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "5000",
+            "path": ["api", "categories"]
+          }
+        }
+      },
+      {
+        "name": "Get Category by ID",
+        "request": {
+          "method": "GET",
+          "url": {
+            "raw": "http://localhost:5000/api/categories/your-category-id",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "5000",
+            "path": ["api", "categories", ":categoryId"]
+          }
+        }
+      },
+      {
+        "name": "Get Category by Name",
+        "request": {
+          "method": "GET",
+          "url": {
+            "raw": "http://localhost:5000/api/categories/name/Beverages",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "5000",
+            "path": ["api", "categories", "name", "Beverages"]
+          }
+        }
+      },
+      {
+        "name": "Update Category",
+        "request": {
+          "method": "PUT",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "url": {
+            "raw": "http://localhost:5000/api/categories/your-category-id",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "5000",
+            "path": ["api", "categories", ":categoryId"]
+          },
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"name\": \"Fresh Beverages\",\n  \"description\": \"Updated drinks category\"\n}"
+          }
+        }
+      },
+      {
+        "name": "Create Subcategory",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "url": {
+            "raw": "http://localhost:5000/api/categories/your-category-id/subcategories",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "5000",
+            "path": ["api", "categories", ":categoryId", "subcategories"]
+          },
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"name\": \"Juices\",\n  \"image\": \"https://example.com/juice.jpg\",\n  \"description\": \"Fresh fruit juices\",\n  \"taxApplicable\": true,\n  \"tax\": 5\n}"
+          }
+        }
+      },
+      {
+        "name": "Get Subcategories for a Category",
+        "request": {
+          "method": "GET",
+          "url": {
+            "raw": "http://localhost:5000/api/categories/your-category-id/subcategories",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "5000",
+            "path": ["api", "categories", ":categoryId", "subcategories"]
+          }
+        }
+      },
+      {
+        "name": "Create Item",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "url": {
+            "raw": "http://localhost:5000/api/subcategories/your-subcategory-id/items",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "5000",
+            "path": ["api", "subcategories", ":subCategoryId", "items"]
+          },
+          "body": {
+            "mode": "raw",
+            "raw": "{\n  \"name\": \"Orange Juice\",\n  \"image\": \"https://example.com/orange.jpg\",\n  \"description\": \"Fresh orange juice\",\n  \"taxApplicable\": true,\n  \"tax\": 2,\n  \"baseAmount\": 5,\n  \"discount\": 1,\n  \"totalAmount\": 4\n}"
+          }
+        }
+      },
+      {
+        "name": "Get All Items",
+        "request": {
+          "method": "GET",
+          "url": {
+            "raw": "http://localhost:5000/api/items",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "5000",
+            "path": ["api", "items"]
+          }
+        }
+      },
+      {
+        "name": "Search Item by Name",
+        "request": {
+          "method": "GET",
+          "url": {
+            "raw": "http://localhost:5000/api/items/search?name=Orange Juice",
+            "protocol": "http",
+            "host": ["localhost"],
+            "port": "5000",
+            "path": ["api", "items", "search"],
+            "query": [
+              {
+                "key": "name",
+                "value": "Orange Juice"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+  
